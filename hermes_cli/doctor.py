@@ -473,7 +473,7 @@ def _render_state_db_stats(stats: dict, holders=None) -> list:
         # auto_prune is on by default since v38; only push the config
         # suggestion when it is actually disabled (a stale suggestion for an
         # already-enabled setting surfaces every run and erodes trust).
-        if stats.get("auto_prune_enabled") is not False:
+        if stats.get("auto_prune_enabled") is True:
             detail = "sessions.auto_prune is enabled; run 'hermes sessions prune --older-than 90' to reclaim space now"
         legacy_trigram = (
             fts is not None
